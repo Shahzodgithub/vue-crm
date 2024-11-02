@@ -1,5 +1,6 @@
-import { defineStore } from 'pinia'
-import axios from 'axios'
+import { defineStore } from 'pinia';
+import { db } from '../firebase';
+import { collection, getDocs, addDoc, doc, updateDoc, deleteDoc } from 'firebase/firestore';
 
 export const usePageStore = defineStore('pageStore', {
   state: () => ({
@@ -7,22 +8,25 @@ export const usePageStore = defineStore('pageStore', {
   }),
   actions: {
     async fetchPages() {
-      const response = await axios.get('http://localhost:3009/pages');
-      this.pages = response.data;
+      const querySnapshot = await getDocs(collection(db, 'pages'));
+      this.pages = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     },
     async createPage(page) {
-      const response = await axios.post('http://localhost:3009/pages', page);
-      this.pages.push(response.data);
+      const docRef = await addDoc(collection(db, 'pages'), page);
+      this.pages.push({ id: docRef.id, ...page });
     },
     async updatePage(page) {
-      const response = await axios.put(`http://localhost:3009/pages/${page.id}`, page);
-      const index = this.pages.findIndex(p => p.id === response.data.id);
-      this.pages[index] = response.data;
+      const pageRef = doc(db, 'pages', page.id);
+      await updateDoc(pageRef, page);
+      const index = this.pages.findIndex(p => p.id === page.id);
+      if (index !== -1) {
+        this.pages[index] = { id: page.id, ...page };
+      }
     },
     async deletePage(id) {
-      await axios.delete(`http://localhost:3009/pages/${id}`);
+      const pageRef = doc(db, 'pages', id);
+      await deleteDoc(pageRef);
       this.pages = this.pages.filter(page => page.id !== id);
     },
   },
 });
-
