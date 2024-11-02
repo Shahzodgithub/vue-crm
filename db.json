@@ -1,0 +1,18 @@
+{
+  "pages": [
+    {
+      "id": "b2bc",
+      "content": "<p><u>shahzod</u></p><p><em><u>dostonbek</u></em></p><div class=\"iframe-wrapper\" style=\"display: flex;justify-content: center;\" data-video=\"\"><div style=\"position: relative;overflow: hidden;display: flex;flex: 1;max-width: 100%;\"><div style=\"flex: 1;padding-bottom: 56.25%;\"></div><iframe src=\"https://www.youtube.com/embed/8aGhZQkoFbQ\" width=\"100%\" frameborder=\"0\" allowfullscreen=\"true\" height=\"100%\"></iframe></div></div>",
+      "title": "doston",
+      "slug": "doston",
+      "metaKeywords": "aeo, ali"
+    },
+    {
+      "id": "0830",
+      "title": "ali",
+      "slug": "ali",
+      "metaKeywords": "ali",
+      "content": "<p>ali</p>"
+    }
+  ]
+}
