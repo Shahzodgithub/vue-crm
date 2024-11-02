@@ -9,7 +9,6 @@
     "preview": "vite preview",
     "lint": "eslint . --fix",
     "format": "prettier --write src/",
-    // "json-server": "json-server --watch db.json --port 3009"
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",
