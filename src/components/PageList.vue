@@ -13,7 +13,7 @@
             <div class="ga-2 d-flex align-center">
               <v-icon icon="mdi-web" class="text-h4"></v-icon>
               <a
-                :href="`http://localhost:3000/${page.slug}`"
+                :href="`https://nuxt-ssr-two-bice.vercel.app/${page.slug}`"
                 class="text-h5 text-decoration-none"
               >
                 {{ page.title }}
