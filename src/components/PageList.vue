@@ -15,6 +15,7 @@
               <a
                 :href="`https://nuxt-ssr-two-bice.vercel.app/${page.slug}`"
                 class="text-h5 text-decoration-none"
+                target="_blank"
               >
                 {{ page.title }}
               </a>
